@@ -119,7 +119,7 @@ public class AutoDirCheck {
 		public void run() {
 			while (!fStop) {
 				try {
-					Thread.sleep(5000L); // チェック間隔
+					Thread.sleep(1000L); // チェック間隔
 				} catch (InterruptedException e) {
 				}
 				check();
