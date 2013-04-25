@@ -35,7 +35,8 @@ public class AutoDirCheck {
 		} else {
 			try {
 				// 設定されていない場合は、ユーザーのホームディレクトリのDropboxディレクトリ
-				config.write("path", System.getProperty("user.home") + "/Dropbox/黄研/temp4print");
+        targetDir = new File(System.getProperty("user.home") + "/Dropbox/黄研/temp4print");
+				config.write("path", targetDir.toString());
 			} catch (IOException e) {
 				System.err.println(e.getMessage());
 			}
@@ -103,7 +104,7 @@ public class AutoDirCheck {
 				jsp.setPath(targetFile.toString());
 				if (jsp.print()) {
 					System.out.println("印刷成功");
-					targetFile.delete(); // ファイル削除
+					//targetFile.delete(); // ファイル削除
 				} else {
 					System.out.println("印刷失敗");
 				}
