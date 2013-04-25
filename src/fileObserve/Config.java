@@ -1,6 +1,8 @@
 package fileObserve;
 
-import java.io.*;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
 import java.util.Properties;
 
 public class Config {
@@ -13,7 +15,7 @@ public class Config {
 		properties = new Properties();
 		
 		try {
-			properties.load(new FileReader(fileName));
+			properties.load(new FileInputStream(fileName));
 		} catch (IOException e) {
 			
 		}
@@ -26,16 +28,5 @@ public class Config {
 	public void write(String key, String value) throws IOException {
 		properties.setProperty(key, value);
 		properties.store(new FileOutputStream(fileName), "");
-	}
-	
-	public static void main(final String[] args) {
-		try {
-			Config config = new Config("config.properties");
-			config.write("path", System.getProperty("user.home") + "/Dropbox/黄研/temp4print");
-			
-			System.out.println(config.read("path"));
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
 	}
 }
