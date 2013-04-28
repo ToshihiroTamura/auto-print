@@ -1,7 +1,6 @@
 package fileObserve;
 
 import java.io.File;
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
@@ -29,17 +28,7 @@ public class AutoDirCheck {
 	public AutoDirCheck() {
 		Config config = new Config("config.properties");
 		String path = config.read("path");
-		
-		if (path != null) {
-			targetDir = new File(path);
-		} else {
-			try {
-				// 設定されていない場合は、ユーザーのホームディレクトリのDropboxディレクトリ
-				config.write("path", System.getProperty("user.home") + "/Dropbox/黄研/temp4print");
-			} catch (IOException e) {
-				System.err.println(e.getMessage());
-			}
-		}
+		targetDir = new File(path);
 	}
 
 	/**
@@ -103,7 +92,7 @@ public class AutoDirCheck {
 				jsp.setPath(targetFile.toString());
 				if (jsp.print()) {
 					System.out.println("印刷成功");
-					targetFile.delete(); // ファイル削除
+					//targetFile.delete(); // ファイル削除
 				} else {
 					System.out.println("印刷失敗");
 				}
@@ -119,7 +108,7 @@ public class AutoDirCheck {
 		public void run() {
 			while (!fStop) {
 				try {
-					Thread.sleep(5000L); // チェック間隔
+					Thread.sleep(1000L); // チェック間隔
 				} catch (InterruptedException e) {
 				}
 				check();
