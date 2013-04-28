@@ -112,7 +112,6 @@ public class AutoDirCheck {
 				} catch (InterruptedException e) {
 				}
 				check();
-
 			}
 		}
 	}
