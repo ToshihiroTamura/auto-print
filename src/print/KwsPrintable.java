@@ -42,6 +42,7 @@ public class KwsPrintable implements Printable, Pageable {
 	/**
 	 * 印刷するメソッド
 	 */
+	@Override
 	public int print(Graphics g, PageFormat pf, int pageIndex) throws PrinterException {
 		if (i != null) {
 			//			g.drawImage(i, (int) pf.getImageableX(), (int) pf.getImageableY(), (int) pf.getImageableWidth(),

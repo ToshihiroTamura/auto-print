@@ -28,7 +28,6 @@ public class JPSPrintDirectFunction extends JPSPFunction {
 
 	public JPSPrintDirectFunction() {
 		super();
-
 	}
 
 	/**
@@ -37,7 +36,9 @@ public class JPSPrintDirectFunction extends JPSPFunction {
 	 */
 	private void setDf(String xxx) {
 		System.out.println("拡張子　：" + xxx);
-		switch (xxx) {
+		if (xxx == null) {
+			df = null;
+		} else switch (xxx) {
 		case "jpg":
 			df = DocFlavor.INPUT_STREAM.JPEG;
 			break;
@@ -60,7 +61,6 @@ public class JPSPrintDirectFunction extends JPSPFunction {
 		case "kws":
 			df = DocFlavor.SERVICE_FORMATTED.PRINTABLE;
 			break;
-
 		default:
 			df = null;
 		}
@@ -140,6 +140,7 @@ public class JPSPrintDirectFunction extends JPSPFunction {
 	/**
 	 * ファイルのパスの指定
 	 */
+	@Override
 	public void setPath(String path) {
 		super.setPath(path);
 		setDf(getSuffix(path));

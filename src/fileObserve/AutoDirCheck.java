@@ -105,6 +105,7 @@ public class AutoDirCheck {
 	 */
 	protected class AutoChecker implements Runnable {
 
+		@Override
 		public void run() {
 			while (!fStop) {
 				try {
