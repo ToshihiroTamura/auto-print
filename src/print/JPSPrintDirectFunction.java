@@ -38,7 +38,7 @@ public class JPSPrintDirectFunction extends JPSPFunction {
 		System.out.println("拡張子　：" + xxx);
 		if (xxx == null) {
 			df = null;
-		} else switch (xxx) {
+		} else switch (xxx.toLowerCase()) {
 		case "jpg":
 			df = DocFlavor.INPUT_STREAM.JPEG;
 			break;
@@ -49,7 +49,8 @@ public class JPSPrintDirectFunction extends JPSPFunction {
 			df = DocFlavor.INPUT_STREAM.GIF;
 			break;
 		case "txt":
-			df = DocFlavor.INPUT_STREAM.TEXT_PLAIN_UTF_8;
+			//df = DocFlavor.INPUT_STREAM.TEXT_PLAIN_UTF_8;
+			df = DocFlavor.INPUT_STREAM.AUTOSENSE;
 			break;
 		case "html":
 			df = DocFlavor.INPUT_STREAM.TEXT_HTML_UTF_8;
@@ -64,7 +65,7 @@ public class JPSPrintDirectFunction extends JPSPFunction {
 		default:
 			df = null;
 		}
-		
+
 	}
 
 	@Override

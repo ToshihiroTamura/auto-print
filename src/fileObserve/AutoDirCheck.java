@@ -15,7 +15,7 @@ import print.JPSPrintDirectFunction;
  *
  */
 public class AutoDirCheck {
-	
+
 	// 更新の監視対象となるディレクトリ
 	private File targetDir;
 	//終了のフラグ
@@ -24,7 +24,7 @@ public class AutoDirCheck {
 	protected List<String> fRegistereds;
 	//印刷機能を提供する抽象クラス
 	private JPSPrintDirectFunction jsp;
-	
+
 	public AutoDirCheck() {
 		Config config = new Config("config.properties");
 		String path = config.read("path");
@@ -88,11 +88,11 @@ public class AutoDirCheck {
 				fRegistereds.add(files[i]);
 				System.out.println(files[i] + " が追加されました");
 				//印刷
-				File targetFile = new File(targetDir, files[i]); 
+				File targetFile = new File(targetDir, files[i]);
 				jsp.setPath(targetFile.toString());
 				if (jsp.print()) {
 					System.out.println("印刷成功");
-					//targetFile.delete(); // ファイル削除
+					targetFile.delete(); // ファイル削除
 				} else {
 					System.out.println("印刷失敗");
 				}
